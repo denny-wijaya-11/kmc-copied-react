@@ -1,0 +1,98 @@
+/* Dropdown.css */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+
+.dropdown-toggle {
+  background: linear-gradient(135deg, #8a2be2, #ff1493);
+  color: white;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+  outline: none;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-toggle:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(255, 20, 147, 0.4);
+}
+
+.dropdown-toggle:active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 10px rgba(138, 43, 226, 0.3);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 18px;
+  padding: 12px;
+  list-style: none;
+  background-color: rgba(30, 30, 40, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  min-width: 220px;
+  z-index: 1000;
+  animation: menuPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  opacity: 0;
+}
+
+/* Panah kecil di atas menu */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent rgba(255, 255, 255, 0.1) transparent;
+}
+
+.dropdown-menu li a {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  border-radius: 10px;
+  margin-bottom: 4px;
+}
+
+.dropdown-menu li:last-child a {
+  margin-bottom: 0;
+}
+
+.dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transform: translateX(6px);
+}
+
+@keyframes menuPop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
